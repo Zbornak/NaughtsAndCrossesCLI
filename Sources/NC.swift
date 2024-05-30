@@ -18,7 +18,7 @@ struct NaughtsAndCrosses {
         print("")
         startNewGame()
         print("")
-        playerSelection(choice: userChoice)
+        playerSelection(selection: userChoice)
         setBoard()
     }
 }
@@ -33,16 +33,16 @@ func startNewGame() {
     setBoard()
 }
 
-func playerSelection(choice: String) {
+func playerSelection(selection: String) {
     print("Make your choice:")
     
-    if var choice = readLine() {
-        switch choice {
+    if var selection = readLine() {
+        switch selection {
         case "TL":
             userChoice = "TL"
             for (index, choice) in choices.enumerated() {
-                if choice[index] == "TL" {
-                    choice[index] = "TL"
+                if choice[index] == userChoice {
+                    choice[index] = userChoice
                 }
             }
         case "TM":
@@ -63,7 +63,7 @@ func playerSelection(choice: String) {
             userChoice = "BR"
         default:
             print("Invalid choice! Please try again.")
-            playerSelection(choice: userChoice)
+            playerSelection(selection: userChoice)
         }
     }
 }
