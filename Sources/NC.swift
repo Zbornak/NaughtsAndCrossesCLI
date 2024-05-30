@@ -19,7 +19,6 @@ struct NaughtsAndCrosses {
         startNewGame()
         print("")
         playerSelection(selection: userChoice)
-        setBoard()
     }
 }
 
@@ -30,6 +29,8 @@ func setBoard() {
 }
 
 func startNewGame() {
+    userChoice = ""
+    opponentChoice = ""
     setBoard()
 }
 
@@ -39,34 +40,30 @@ func playerSelection(selection: String) {
     if var selection = readLine() {
         switch selection {
         case "TL":
-            userChoice = "TL"
-            for (index, choice) in choices.enumerated() {
-                if choice[index] == userChoice {
-                    choice[index] = userChoice
-                }
-            }
+            selection = "TL"
         case "TM":
-            userChoice = "TM"
+            selection = "TM"
         case "TR":
-            userChoice = "TR"
+            selection = "TR"
         case "ML":
-            userChoice = "ML"
+            selection = "ML"
         case "MM":
-            userChoice = "MM"
+            selection = "MM"
         case "MR":
-            userChoice = "MR"
+            selection = "MR"
         case "BL":
-            userChoice = "BL"
+            selection = "BL"
         case "BM":
-            userChoice = "BM"
+            selection = "BM"
         case "BR":
-            userChoice = "BR"
+            selection = "BR"
         default:
-            print("Invalid choice! Please try again.")
-            playerSelection(selection: userChoice)
+            print("Invalid choice, please try again.")
+            playerSelection(selection: selection)
         }
+        
+        print("You have chosen \(selection).")
     }
 }
-
 
 
