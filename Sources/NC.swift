@@ -1,3 +1,5 @@
+import Figlet
+
 @available(macOS 10.15, *)
 @main
 struct NaughtsAndCrosses {
@@ -6,7 +8,8 @@ struct NaughtsAndCrosses {
     var opponentChoice = ""
     
     static func main() {
-        print("Hello Mark!")
+        Figlet.say("Naughts & Crosses")
+        print("by zbornak 2024")
     }
 }
 
