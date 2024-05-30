@@ -19,6 +19,7 @@ struct NaughtsAndCrosses {
         startNewGame()
         print("")
         playerSelection(choice: userChoice)
+        setBoard()
     }
 }
 
@@ -39,6 +40,11 @@ func playerSelection(choice: String) {
         switch choice {
         case "TL":
             userChoice = "TL"
+            for (index, choice) in choices.enumerated() {
+                if choice[index] == "TL" {
+                    choice[index] = "TL"
+                }
+            }
         case "TM":
             userChoice = "TM"
         case "TR":
