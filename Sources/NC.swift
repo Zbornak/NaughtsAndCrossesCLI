@@ -1,4 +1,5 @@
 import Figlet
+import Foundation
 
 var choices = [
     ["TL", "TM", "TR"],
@@ -17,7 +18,7 @@ struct NaughtsAndCrosses {
         print("")
         startNewGame()
         print("")
-        print("Make your choice:")
+        playerSelection(choice: userChoice)
     }
 }
 
@@ -32,8 +33,33 @@ func startNewGame() {
 }
 
 func playerSelection(choice: String) {
+    print("Make your choice:")
     
-    setBoard()
+    if var choice = readLine() {
+        switch choice {
+        case "TL":
+            userChoice = "TL"
+        case "TM":
+            userChoice = "TM"
+        case "TR":
+            userChoice = "TR"
+        case "ML":
+            userChoice = "ML"
+        case "MM":
+            userChoice = "MM"
+        case "MR":
+            userChoice = "MR"
+        case "BL":
+            userChoice = "BL"
+        case "BM":
+            userChoice = "BM"
+        case "BR":
+            userChoice = "BR"
+        default:
+            print("Invalid choice! Please try again.")
+            playerSelection(choice: userChoice)
+        }
+    }
 }
 
 
