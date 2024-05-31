@@ -19,9 +19,25 @@ var BM = BoardPiece(label: "BM", status: .notSet)
 var BR = BoardPiece(label: "BR", status: .notSet)
 
 var userChoice = ""
+var userPointsR1 = 0
+var userPointsR2 = 0
+var userPointsR3 = 0
+var userPointsC1 = 0
+var userPointsC2 = 0
+var userPointsC3 = 0
+var userPointsD1 = 0
+var userPointsD2 = 0
 var userWins = false
 
 var computerChoice = ""
+var computerPointsR1 = 0
+var computerPointsR2 = 0
+var computerPointsR3 = 0
+var computerPointsC1 = 0
+var computerPointsC2 = 0
+var computerPointsC3 = 0
+var computerPointsD1 = 0
+var computerPointsD2 = 0
 var computerWins = false
 
 var replayChoice = ""
@@ -110,7 +126,6 @@ func playerSelection(selection: String) {
 
 func computerSelection(userSelection: String, selection: String) {
     
-    print("")
     print("My choice is: \(computerChoice).")
 }
 
