@@ -18,10 +18,10 @@ var BL = BoardPiece(label: "BL", status: .notSet)
 var BM = BoardPiece(label: "BM", status: .notSet)
 var BR = BoardPiece(label: "BR", status: .notSet)
 
-var userChoice: String?
+var userChoice = ""
 var userWins = false
 
-var computerChoice: String?
+var computerChoice = ""
 var computerWins = false
 
 @main
@@ -52,12 +52,12 @@ func drawBoard() {
 }
 
 func playerTurn() {
-    playerSelection(selection: userChoice ?? "No choice made.")
+    playerSelection(selection: userChoice)
     drawBoard()
 }
 
 func computerTurn() {
-    computerSelection(selection: computerChoice ?? "No choice made.")
+    computerSelection(selection: computerChoice)
     drawBoard()
 }
 
@@ -93,7 +93,7 @@ func playerSelection(selection: String) {
 
 func computerSelection(selection: String) {
     print("")
-    print("My choice is: \(computerChoice ?? "No choice made").")
+    print("My choice is: \(computerChoice).")
 }
 
 func checkForWin(board: [[String]]) {
