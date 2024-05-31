@@ -66,7 +66,7 @@ func playerTurn() {
 func playerSelection(selection: String) {
     print("Make your choice:")
     
-    if var selection = readLine() {
+    if let selection = readLine()?.uppercased() {
         switch selection {
         case "TL":
             TL.status = .setByPlayer
