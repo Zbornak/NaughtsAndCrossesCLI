@@ -87,7 +87,8 @@ func playerSelection(selection: String) {
 }
 
 func computerSelection(selection: String) {
-    print("Computer is thinking...")
+    print("")
+    print("My choice is...")
 }
 
 
