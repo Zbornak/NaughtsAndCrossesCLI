@@ -25,7 +25,7 @@ var computerChoice: String?
 struct NaughtsAndCrosses {
     static func main() {
         Figlet.say("Naughts & Crosses")
-        print("by zbornak (2024)")
+        print("(c) zbornak, 2024")
         print("")
         drawBoard()
         print("")
