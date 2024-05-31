@@ -18,12 +18,6 @@ var BL = BoardPiece(label: "BL", status: .notSet)
 var BM = BoardPiece(label: "BM", status: .notSet)
 var BR = BoardPiece(label: "BR", status: .notSet)
 
-let choices = [
-    [TL.title, TM.title, TR.title],
-    [ML.title, MM.title, MR.title],
-    [BL.title, BM.title, BR.title]
-]
-
 var userChoice: String?
 var computerChoice: String?
 
@@ -41,6 +35,12 @@ struct NaughtsAndCrosses {
 }
 
 func drawBoard() {
+    let choices = [
+        [TL.title, TM.title, TR.title],
+        [ML.title, MM.title, MR.title],
+        [BL.title, BM.title, BR.title]
+    ]
+    
     for choice in choices {
         print(choice)
     }
