@@ -19,7 +19,10 @@ var BM = BoardPiece(label: "BM", status: .notSet)
 var BR = BoardPiece(label: "BR", status: .notSet)
 
 var userChoice: String?
+var userWins = false
+
 var computerChoice: String?
+var computerWins = false
 
 @main
 struct NaughtsAndCrosses {
@@ -44,6 +47,8 @@ func drawBoard() {
     for choice in choices {
         print(choice)
     }
+    
+    checkForWin(board: choices)
 }
 
 func playerTurn() {
@@ -91,4 +96,7 @@ func computerSelection(selection: String) {
     print("My choice is...")
 }
 
+func checkForWin(board: [[String]]) {
+   // check to see if either player or computer has won
+}
 
