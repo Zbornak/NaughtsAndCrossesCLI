@@ -101,22 +101,46 @@ func playerSelection(selection: String) {
         switch selection {
         case "TL":
             TL.status = .setByPlayer
+            userPointsR1 += 1
+            userPointsC1 += 1
+            userPointsD1 += 1
         case "TM":
             TM.status = .setByPlayer
+            userPointsR1 += 1
+            userPointsC2 += 1
         case "TR":
             TR.status = .setByPlayer
+            userPointsR1 += 1
+            userPointsC3 += 1
+            userPointsD2 += 1
         case "ML":
             ML.status = .setByPlayer
+            userPointsR2 += 1
+            userPointsC1 += 1
         case "MM":
             MM.status = .setByPlayer
+            userPointsR2 += 1
+            userPointsC2 += 1
+            userPointsD1 += 1
+            userPointsD2 += 1
         case "MR":
             MR.status = .setByPlayer
+            userPointsR2 += 1
+            userPointsC3 += 1
         case "BL":
             BL.status = .setByPlayer
+            userPointsR3 += 1
+            userPointsC1 += 1
+            userPointsD2 += 1
         case "BM":
             BM.status = .setByPlayer
+            userPointsR3 += 1
+            userPointsC2 += 1
         case "BR":
             BR.status = .setByPlayer
+            userPointsR3 += 1
+            userPointsC3 += 1
+            userPointsD1 += 1
         default:
             print("Invalid choice, please try again.")
             playerSelection(selection: selection)
