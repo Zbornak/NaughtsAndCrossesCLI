@@ -29,7 +29,6 @@ var userPointsD1 = 0
 var userPointsD2 = 0
 var userWins = false
 
-var computerChoice = ""
 var computerWins = false
 
 var replayChoice = ""
@@ -82,7 +81,7 @@ func playerTurn() {
 }
 
 func computerTurn() {
-    computerSelection(userSelection: userChoice, selection: computerChoice)
+    computerSelection()
     drawBoard()
 }
 
@@ -140,7 +139,7 @@ func playerSelection(selection: String) {
     }
 }
 
-func computerSelection(userSelection: String, selection: String) {
+func computerSelection() {
     if userPointsR1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
@@ -206,8 +205,6 @@ func computerSelection(userSelection: String, selection: String) {
             TR.status = .setByComputer
         }
     }
-    
-    print("My choice is: \(computerChoice).")
 }
 
 func checkForWin(board: [[String]]) {
