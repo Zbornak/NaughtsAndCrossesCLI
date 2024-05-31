@@ -140,6 +140,7 @@ func playerSelection(selection: String) {
 func computerSelection() {
     print("My choice is:")
     
+    // if player is about to win:
     if userPointsR1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
