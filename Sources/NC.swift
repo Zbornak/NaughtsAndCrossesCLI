@@ -36,6 +36,7 @@ struct NaughtsAndCrosses {
         drawBoard()
         print("")
         playerTurn()
+        computerTurn()
     }
 }
 
@@ -47,6 +48,11 @@ func drawBoard() {
 
 func playerTurn() {
     playerSelection(selection: userChoice)
+    drawBoard()
+}
+
+func computerTurn() {
+    computerSelection(selection: computerChoice)
     drawBoard()
 }
 
