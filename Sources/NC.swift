@@ -24,8 +24,8 @@ let choices = [
     [BL.title, BM.title, BR.title]
 ]
 
-var userChoice = ""
-var computerChoice = ""
+var userChoice: String?
+var computerChoice: String?
 
 @main
 struct NaughtsAndCrosses {
@@ -47,12 +47,12 @@ func drawBoard() {
 }
 
 func playerTurn() {
-    playerSelection(selection: userChoice)
+    playerSelection(selection: userChoice ?? "No choice made")
     drawBoard()
 }
 
 func computerTurn() {
-    computerSelection(selection: computerChoice)
+    computerSelection(selection: computerChoice ?? "No choice made")
     drawBoard()
 }
 

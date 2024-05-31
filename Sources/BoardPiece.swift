@@ -25,4 +25,9 @@ struct BoardPiece {
     enum SetStatus {
         case notSet, setByPlayer, setByComputer
     }
+    
+    init(label: String, status: SetStatus) {
+        self.label = label
+        self.status = status
+    }
 }
