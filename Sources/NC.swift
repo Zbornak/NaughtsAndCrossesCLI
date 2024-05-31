@@ -30,7 +30,7 @@ struct NaughtsAndCrosses {
         drawBoard()
         print("")
         playerTurn()
-        computerTurn()
+        //computerTurn()
     }
 }
 
@@ -66,19 +66,19 @@ func playerSelection(selection: String) {
         case "TM":
             TM.status = .setByPlayer
         case "TR":
-            TM.status = .setByPlayer
+            TR.status = .setByPlayer
         case "ML":
-            TM.status = .setByPlayer
+            ML.status = .setByPlayer
         case "MM":
-            TM.status = .setByPlayer
+            MM.status = .setByPlayer
         case "MR":
-            TM.status = .setByPlayer
+            MR.status = .setByPlayer
         case "BL":
-            TM.status = .setByPlayer
+            BL.status = .setByPlayer
         case "BM":
-            TM.status = .setByPlayer
+            BM.status = .setByPlayer
         case "BR":
-            TM.status = .setByPlayer
+            BR.status = .setByPlayer
         default:
             print("Invalid choice, please try again.")
             playerSelection(selection: selection)
