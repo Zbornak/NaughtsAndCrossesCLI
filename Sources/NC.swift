@@ -30,14 +30,6 @@ var userPointsD2 = 0
 var userWins = false
 
 var computerChoice = ""
-var computerPointsR1 = 0
-var computerPointsR2 = 0
-var computerPointsR3 = 0
-var computerPointsC1 = 0
-var computerPointsC2 = 0
-var computerPointsC3 = 0
-var computerPointsD1 = 0
-var computerPointsD2 = 0
 var computerWins = false
 
 var replayChoice = ""
@@ -149,6 +141,71 @@ func playerSelection(selection: String) {
 }
 
 func computerSelection(userSelection: String, selection: String) {
+    if userPointsR1 == 2 {
+        if TL.status != .setByPlayer {
+            TL.status = .setByComputer
+        } else if TM.status != .setByPlayer {
+            TM.status = .setByComputer
+        } else {
+            TR.status = .setByComputer
+        }
+    } else if userPointsR2 == 2 {
+        if ML.status != .setByPlayer {
+            ML.status = .setByComputer
+        } else if MM.status != .setByPlayer {
+            MM.status = .setByComputer
+        } else {
+            MR.status = .setByComputer
+        }
+    } else if userPointsR3 == 2 {
+        if BL.status != .setByPlayer {
+            BL.status = .setByComputer
+        } else if BM.status != .setByPlayer {
+            BM.status = .setByComputer
+        } else {
+            BR.status = .setByComputer
+        }
+    } else if userPointsC1 == 2 {
+        if TL.status != .setByPlayer {
+            TL.status = .setByComputer
+        } else if ML.status != .setByPlayer {
+            ML.status = .setByComputer
+        } else {
+            BL.status = .setByComputer
+        }
+    } else if userPointsC2 == 2 {
+        if TM.status != .setByPlayer {
+            TM.status = .setByComputer
+        } else if MM.status != .setByPlayer {
+            MM.status = .setByComputer
+        } else {
+            BM.status = .setByComputer
+        }
+    } else if userPointsC3 == 2 {
+        if TR.status != .setByPlayer {
+            TR.status = .setByComputer
+        } else if MR.status != .setByPlayer {
+            MR.status = .setByComputer
+        } else {
+            BR.status = .setByComputer
+        }
+    } else if userPointsD1 == 2 {
+        if TL.status != .setByPlayer {
+            TL.status = .setByComputer
+        } else if MM.status != .setByPlayer {
+            MM.status = .setByComputer
+        } else {
+            BR.status = .setByComputer
+        }
+    } else if userPointsD2 == 2 {
+        if BL.status != .setByPlayer {
+            BL.status = .setByComputer
+        } else if MM.status != .setByPlayer {
+            MM.status = .setByComputer
+        } else {
+            TR.status = .setByComputer
+        }
+    }
     
     print("My choice is: \(computerChoice).")
 }
