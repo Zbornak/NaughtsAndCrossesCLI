@@ -24,16 +24,23 @@ var userWins = false
 var computerChoice = ""
 var computerWins = false
 
+var replayChoice = ""
+
 @main
 struct NaughtsAndCrosses {
     static func main() {
         Figlet.say("Naughts & Crosses")
         print("(c) zbornak, 2024")
         print("")
+        print("Board:")
         drawBoard()
         print("")
         playerTurn()
         //computerTurn()
+        print("")
+        print("Play again? Y/N")
+        replayChoice = readLine()?.uppercased() ?? "No selection"
+        endGame(choice: replayChoice)
     }
 }
 
@@ -99,5 +106,14 @@ func computerSelection(userSelection: String, selection: String) {
 
 func checkForWin(board: [[String]]) {
    // check to see if either player or computer has won
+}
+
+func endGame(choice: String) {
+    if choice == "N" {
+        exit(0)
+    } else if choice == "Y" {
+        print("Board:")
+        drawBoard()
+    }
 }
 
