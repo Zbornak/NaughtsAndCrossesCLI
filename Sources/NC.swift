@@ -57,7 +57,7 @@ func playerTurn() {
 }
 
 func computerTurn() {
-    computerSelection(selection: computerChoice)
+    computerSelection(userSelection: userChoice, selection: computerChoice)
     drawBoard()
 }
 
@@ -91,7 +91,8 @@ func playerSelection(selection: String) {
     }
 }
 
-func computerSelection(selection: String) {
+func computerSelection(userSelection: String, selection: String) {
+    
     print("")
     print("My choice is: \(computerChoice).")
 }
