@@ -52,12 +52,12 @@ func drawBoard() {
 }
 
 func playerTurn() {
-    playerSelection(selection: userChoice ?? "No choice made")
+    playerSelection(selection: userChoice ?? "No choice made.")
     drawBoard()
 }
 
 func computerTurn() {
-    computerSelection(selection: computerChoice ?? "No choice made")
+    computerSelection(selection: computerChoice ?? "No choice made.")
     drawBoard()
 }
 
@@ -93,7 +93,7 @@ func playerSelection(selection: String) {
 
 func computerSelection(selection: String) {
     print("")
-    print("My choice is...")
+    print("My choice is: \(computerChoice ?? "No choice made").")
 }
 
 func checkForWin(board: [[String]]) {
