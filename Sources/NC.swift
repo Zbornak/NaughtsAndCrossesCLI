@@ -31,17 +31,27 @@ struct NaughtsAndCrosses {
     static func main() {
         Figlet.say("Naughts & Crosses")
         print("(c) zbornak, 2024")
-        print("")
-        print("Board:")
-        drawBoard()
-        print("")
-        playerTurn()
-        //computerTurn()
-        print("")
+        newGame()
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
     }
+}
+
+func newGame() {
+    TL.status = .notSet
+    TM.status = .notSet
+    TR.status = .notSet
+    ML.status = .notSet
+    MM.status = .notSet
+    MR.status = .notSet
+    BL.status = .notSet
+    BM.status = .notSet
+    BR.status = .notSet
+    print("Board:")
+    drawBoard()
+    playerTurn()
+    computerTurn()
 }
 
 func drawBoard() {
@@ -112,8 +122,7 @@ func endGame(choice: String) {
     if choice == "N" {
         exit(0)
     } else if choice == "Y" {
-        print("Board:")
-        drawBoard()
+        newGame()
     }
 }
 
