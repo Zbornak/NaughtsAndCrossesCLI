@@ -71,8 +71,6 @@ func drawBoard() {
     for choice in choices {
         print(choice)
     }
-    
-    checkForWin(board: choices)
 }
 
 func playerTurn() {
@@ -140,6 +138,8 @@ func playerSelection(selection: String) {
 }
 
 func computerSelection() {
+    print("My choice is:")
+    
     if userPointsR1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
@@ -205,10 +205,6 @@ func computerSelection() {
             TR.status = .setByComputer
         }
     }
-}
-
-func checkForWin(board: [[String]]) {
-   // check to see if either player or computer has won
 }
 
 func endGame(choice: String) {
