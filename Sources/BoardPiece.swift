@@ -27,7 +27,7 @@ class BoardPiece {
     }
     
     func setStatus() {
-        if status != .setByPlayer {
+        if status != .setByPlayer && status != .setByComputer {
             status = .setByComputer
         }
     }

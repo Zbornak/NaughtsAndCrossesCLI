@@ -83,7 +83,7 @@ func drawBoard() {
     
     for row in choices {
         for i in row {
-            print(i, terminator: "     ")
+            print(i, terminator: "   ")
         }
         
         print()
