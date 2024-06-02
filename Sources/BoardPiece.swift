@@ -16,9 +16,9 @@ class BoardPiece {
         case .notSet:
             return "\(label)"
         case .setByPlayer:
-            return "O"
+            return " O"
         case .setByComputer:
-            return "X"
+            return " X"
         }
     }
     
