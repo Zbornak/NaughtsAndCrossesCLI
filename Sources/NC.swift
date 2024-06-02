@@ -29,6 +29,14 @@ var playerPointsD1 = 0
 var playerPointsD2 = 0
 var playerWins = false
 
+var computerPointsR1 = 0
+var computerPointsR2 = 0
+var computerPointsR3 = 0
+var computerPointsC1 = 0
+var computerPointsC2 = 0
+var computerPointsC3 = 0
+var computerPointsD1 = 0
+var computerPointsD2 = 0
 var computerWins = false
 
 var replayChoice = ""
@@ -61,6 +69,15 @@ func newGame() {
     playerPointsC3 = 0
     playerPointsD1 = 0
     playerPointsD2 = 0
+    
+    computerPointsR1 = 0
+    computerPointsR2 = 0
+    computerPointsR3 = 0
+    computerPointsC1 = 0
+    computerPointsC2 = 0
+    computerPointsC3 = 0
+    computerPointsD1 = 0
+    computerPointsD2 = 0
     
     playerWins = false
     computerWins = false
@@ -237,6 +254,12 @@ func checkGameState() {
     if playerPointsR1 == 3 || playerPointsR2 == 3 || playerPointsR1 == 3 || playerPointsC1 == 3 || playerPointsC2 == 3 || playerPointsC3 == 3 || playerPointsD1 == 3 || playerPointsD2 == 3 {
         playerWins = true
         Figlet.say("You win")
+        print("Play again? Y/N")
+        replayChoice = readLine()?.uppercased() ?? "No selection"
+        endGame(choice: replayChoice)
+    } else if computerPointsR1 == 3 || computerPointsR2 == 3 || computerPointsR1 == 3 || computerPointsC1 == 3 || computerPointsC2 == 3 || computerPointsC3 == 3 || computerPointsD1 == 3 || computerPointsD2 == 3 {
+        computerWins = true
+        Figlet.say("You lose")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
