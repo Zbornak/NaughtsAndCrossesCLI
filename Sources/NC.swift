@@ -68,8 +68,12 @@ func drawBoard() {
         [BL.title, BM.title, BR.title]
     ]
     
-    for choice in choices {
-        print(choice)
+    for row in choices {
+        for i in row {
+            print(i, terminator: " ")
+        }
+        
+        print()
     }
 }
 
