@@ -160,17 +160,10 @@ func playerSelection(selection: String) {
 func computerSelection() {
     print("My choice is:")
     
-    let choices = [TL, TM, TR, ML, MM, MR, BL, BM, BR]
+    //until player reaches 2 win points:
     
     
-    for choice in choices {
-        if userPointsR1 == 2 || userPointsR2 == 2 || userPointsR1 == 2 || userPointsC1 == 2 || userPointsC2 == 2 || userPointsC3 == 2 || userPointsD1 == 2 || userPointsD2 == 2 {
-            choice.setStatus()
-            break
-        }
-    }
-    
-    // if player is about to win:
+    // if player is about to win (2 win points):
     if userPointsR1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer

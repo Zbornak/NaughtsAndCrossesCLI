@@ -27,9 +27,9 @@ class BoardPiece {
     }
     
     func setStatus() {
-        if status != .setByPlayer && status != .setByComputer {
+        if status == .notSet {
             status = .setByComputer
-        }
+        } 
     }
     
     init(label: String, status: SetStatus) {
