@@ -65,7 +65,6 @@ func newGame() {
     userWins = false
     computerWins = false
     
-    print("Board:")
     drawBoard()
     
     while !userWins || !computerWins {
@@ -88,6 +87,8 @@ func drawBoard() {
         
         print()
     }
+    
+    print("")
 }
 
 func playerTurn() {
@@ -101,7 +102,7 @@ func computerTurn() {
 }
 
 func playerSelection(selection: String) {
-    print("Make your choice:")
+    print("Make your choice: ", terminator: "")
     
     if let selection = readLine()?.uppercased() {
         switch selection {
