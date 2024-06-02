@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BoardPiece {
+class BoardPiece {
     var label: String // unset title
     var status: SetStatus
     
@@ -24,6 +24,12 @@ struct BoardPiece {
     
     enum SetStatus {
         case notSet, setByPlayer, setByComputer
+    }
+    
+    func setStatus() {
+        if status != .setByPlayer {
+            status = .setByComputer
+        }
     }
     
     init(label: String, status: SetStatus) {
