@@ -18,16 +18,16 @@ var BL = BoardPiece(label: "BL", status: .notSet)
 var BM = BoardPiece(label: "BM", status: .notSet)
 var BR = BoardPiece(label: "BR", status: .notSet)
 
-var userChoice = ""
-var userPointsR1 = 0
-var userPointsR2 = 0
-var userPointsR3 = 0
-var userPointsC1 = 0
-var userPointsC2 = 0
-var userPointsC3 = 0
-var userPointsD1 = 0
-var userPointsD2 = 0
-var userWins = false
+var playerChoice = ""
+var playerPointsR1 = 0
+var playerPointsR2 = 0
+var playerPointsR3 = 0
+var playerPointsC1 = 0
+var playerPointsC2 = 0
+var playerPointsC3 = 0
+var playerPointsD1 = 0
+var playerPointsD2 = 0
+var playerWins = false
 
 var computerWins = false
 
@@ -53,21 +53,21 @@ func newGame() {
     BM.status = .notSet
     BR.status = .notSet
     
-    userPointsR1 = 0
-    userPointsR2 = 0
-    userPointsR3 = 0
-    userPointsC1 = 0
-    userPointsC2 = 0
-    userPointsC3 = 0
-    userPointsD1 = 0
-    userPointsD2 = 0
+    playerPointsR1 = 0
+    playerPointsR2 = 0
+    playerPointsR3 = 0
+    playerPointsC1 = 0
+    playerPointsC2 = 0
+    playerPointsC3 = 0
+    playerPointsD1 = 0
+    playerPointsD2 = 0
     
-    userWins = false
+    playerWins = false
     computerWins = false
     
     drawBoard()
     
-    while !userWins || !computerWins {
+    while !playerWins || !computerWins {
         playerTurn()
         computerTurn()
     }
@@ -92,7 +92,7 @@ func drawBoard() {
 }
 
 func playerTurn() {
-    playerSelection(selection: userChoice)
+    playerSelection(selection: playerChoice)
     drawBoard()
 }
 
@@ -108,46 +108,46 @@ func playerSelection(selection: String) {
         switch selection {
         case "TL":
             TL.status = .setByPlayer
-            userPointsR1 += 1
-            userPointsC1 += 1
-            userPointsD1 += 1
+            playerPointsR1 += 1
+            playerPointsC1 += 1
+            playerPointsD1 += 1
         case "TM":
             TM.status = .setByPlayer
-            userPointsR1 += 1
-            userPointsC2 += 1
+            playerPointsR1 += 1
+            playerPointsC2 += 1
         case "TR":
             TR.status = .setByPlayer
-            userPointsR1 += 1
-            userPointsC3 += 1
-            userPointsD2 += 1
+            playerPointsR1 += 1
+            playerPointsC3 += 1
+            playerPointsD2 += 1
         case "ML":
             ML.status = .setByPlayer
-            userPointsR2 += 1
-            userPointsC1 += 1
+            playerPointsR2 += 1
+            playerPointsC1 += 1
         case "MM":
             MM.status = .setByPlayer
-            userPointsR2 += 1
-            userPointsC2 += 1
-            userPointsD1 += 1
-            userPointsD2 += 1
+            playerPointsR2 += 1
+            playerPointsC2 += 1
+            playerPointsD1 += 1
+            playerPointsD2 += 1
         case "MR":
             MR.status = .setByPlayer
-            userPointsR2 += 1
-            userPointsC3 += 1
+            playerPointsR2 += 1
+            playerPointsC3 += 1
         case "BL":
             BL.status = .setByPlayer
-            userPointsR3 += 1
-            userPointsC1 += 1
-            userPointsD2 += 1
+            playerPointsR3 += 1
+            playerPointsC1 += 1
+            playerPointsD2 += 1
         case "BM":
             BM.status = .setByPlayer
-            userPointsR3 += 1
-            userPointsC2 += 1
+            playerPointsR3 += 1
+            playerPointsC2 += 1
         case "BR":
             BR.status = .setByPlayer
-            userPointsR3 += 1
-            userPointsC3 += 1
-            userPointsD1 += 1
+            playerPointsR3 += 1
+            playerPointsC3 += 1
+            playerPointsD1 += 1
         default:
             print("Invalid choice, please try again.")
             playerSelection(selection: selection)
@@ -164,7 +164,7 @@ func computerSelection() {
     
     
     // if player is about to win (2 win points):
-    if userPointsR1 == 2 {
+    if playerPointsR1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
         } else if TM.status != .setByPlayer {
@@ -172,7 +172,7 @@ func computerSelection() {
         } else {
             TR.status = .setByComputer
         }
-    } else if userPointsR2 == 2 {
+    } else if playerPointsR2 == 2 {
         if ML.status != .setByPlayer {
             ML.status = .setByComputer
         } else if MM.status != .setByPlayer {
@@ -180,7 +180,7 @@ func computerSelection() {
         } else {
             MR.status = .setByComputer
         }
-    } else if userPointsR3 == 2 {
+    } else if playerPointsR3 == 2 {
         if BL.status != .setByPlayer {
             BL.status = .setByComputer
         } else if BM.status != .setByPlayer {
@@ -188,7 +188,7 @@ func computerSelection() {
         } else {
             BR.status = .setByComputer
         }
-    } else if userPointsC1 == 2 {
+    } else if playerPointsC1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
         } else if ML.status != .setByPlayer {
@@ -196,7 +196,7 @@ func computerSelection() {
         } else {
             BL.status = .setByComputer
         }
-    } else if userPointsC2 == 2 {
+    } else if playerPointsC2 == 2 {
         if TM.status != .setByPlayer {
             TM.status = .setByComputer
         } else if MM.status != .setByPlayer {
@@ -204,7 +204,7 @@ func computerSelection() {
         } else {
             BM.status = .setByComputer
         }
-    } else if userPointsC3 == 2 {
+    } else if playerPointsC3 == 2 {
         if TR.status != .setByPlayer {
             TR.status = .setByComputer
         } else if MR.status != .setByPlayer {
@@ -212,7 +212,7 @@ func computerSelection() {
         } else {
             BR.status = .setByComputer
         }
-    } else if userPointsD1 == 2 {
+    } else if playerPointsD1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
         } else if MM.status != .setByPlayer {
@@ -220,7 +220,7 @@ func computerSelection() {
         } else {
             BR.status = .setByComputer
         }
-    } else if userPointsD2 == 2 {
+    } else if playerPointsD2 == 2 {
         if BL.status != .setByPlayer {
             BL.status = .setByComputer
         } else if MM.status != .setByPlayer {
@@ -234,8 +234,8 @@ func computerSelection() {
 }
 
 func checkGameState() {
-    if userPointsR1 == 3 || userPointsR2 == 3 || userPointsR1 == 3 || userPointsC1 == 3 || userPointsC2 == 3 || userPointsC3 == 3 || userPointsD1 == 3 || userPointsD2 == 3 {
-        userWins = true
+    if playerPointsR1 == 3 || playerPointsR2 == 3 || playerPointsR1 == 3 || playerPointsC1 == 3 || playerPointsC2 == 3 || playerPointsC3 == 3 || playerPointsD1 == 3 || playerPointsD2 == 3 {
+        playerWins = true
         Figlet.say("You win")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
