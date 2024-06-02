@@ -39,9 +39,6 @@ struct NaughtsAndCrosses {
         Figlet.say("Naughts & Crosses")
         print("(c) zbornak, 2024")
         newGame()
-        print("Play again? Y/N")
-        replayChoice = readLine()?.uppercased() ?? "No selection"
-        endGame(choice: replayChoice)
     }
 }
 
@@ -55,10 +52,26 @@ func newGame() {
     BL.status = .notSet
     BM.status = .notSet
     BR.status = .notSet
+    
+    userPointsR1 = 0
+    userPointsR2 = 0
+    userPointsR3 = 0
+    userPointsC1 = 0
+    userPointsC2 = 0
+    userPointsC3 = 0
+    userPointsD1 = 0
+    userPointsD2 = 0
+    
+    userWins = false
+    computerWins = false
+    
     print("Board:")
     drawBoard()
-    playerTurn()
-    computerTurn()
+    
+    while !userWins || !computerWins {
+        playerTurn()
+        computerTurn()
+    }
 }
 
 func drawBoard() {
@@ -70,7 +83,7 @@ func drawBoard() {
     
     for row in choices {
         for i in row {
-            print(i, terminator: " ")
+            print(i, terminator: "     ")
         }
         
         print()
@@ -139,10 +152,22 @@ func playerSelection(selection: String) {
             playerSelection(selection: selection)
         }
     }
+    
+    checkGameState()
 }
 
 func computerSelection() {
     print("My choice is:")
+    
+    let choices = [TL, TM, TR, ML, MM, MR, BL, BM, BR]
+    
+    
+    for choice in choices {
+        if userPointsR1 < 2 || userPointsR2 < 2 || userPointsR1 < 2 || userPointsC1 < 2 || userPointsC2 < 2 || userPointsC3  < 2 || userPointsD1 < 2 || userPointsD2 < 2 {
+            choice.setStatus()
+            break
+        }
+    }
     
     // if player is about to win:
     if userPointsR1 == 2 {
@@ -209,6 +234,18 @@ func computerSelection() {
         } else {
             TR.status = .setByComputer
         }
+    }
+    
+    checkGameState()
+}
+
+func checkGameState() {
+    if userPointsR1 == 3 || userPointsR2 == 3 || userPointsR1 == 3 || userPointsC1 == 3 || userPointsC2 == 3 || userPointsC3 == 3 || userPointsD1 == 3 || userPointsD2 == 3 {
+        userWins = true
+        Figlet.say("You win")
+        print("Play again? Y/N")
+        replayChoice = readLine()?.uppercased() ?? "No selection"
+        endGame(choice: replayChoice)
     }
 }
 
