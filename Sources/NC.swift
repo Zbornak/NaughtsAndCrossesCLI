@@ -163,7 +163,7 @@ func computerSelection() {
     
     
     for choice in choices {
-        if userPointsR1 < 2 || userPointsR2 < 2 || userPointsR1 < 2 || userPointsC1 < 2 || userPointsC2 < 2 || userPointsC3  < 2 || userPointsD1 < 2 || userPointsD2 < 2 {
+        if userPointsR1 == 2 || userPointsR2 == 2 || userPointsR1 == 2 || userPointsC1 == 2 || userPointsC2 == 2 || userPointsC3 == 2 || userPointsD1 == 2 || userPointsD2 == 2 {
             choice.setStatus()
             break
         }
