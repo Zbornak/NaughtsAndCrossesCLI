@@ -88,47 +88,92 @@ func humanSelection(selection: String) {
     if let selection = readLine()?.uppercased() {
         switch selection {
         case "TL":
-            TL.status = .setByPlayer
-            human.pointsR1 += 1
-            human.pointsC1 += 1
-            human.pointsD1 += 1
+            if TL.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                TL.status = .setByPlayer
+                human.pointsR1 += 1
+                human.pointsC1 += 1
+                human.pointsD1 += 1
+            }
         case "TM":
-            TM.status = .setByPlayer
-            human.pointsR1 += 1
-            human.pointsC2 += 1
+            if TM.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                TM.status = .setByPlayer
+                human.pointsR1 += 1
+                human.pointsC2 += 1
+            }
         case "TR":
-            TR.status = .setByPlayer
-            human.pointsR1 += 1
-            human.pointsC3 += 1
-            human.pointsD2 += 1
+            if TR.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                TR.status = .setByPlayer
+                human.pointsR1 += 1
+                human.pointsC3 += 1
+                human.pointsD2 += 1
+            }
         case "ML":
-            ML.status = .setByPlayer
-            human.pointsR2 += 1
-            human.pointsC1 += 1
+            if ML.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                ML.status = .setByPlayer
+                human.pointsR2 += 1
+                human.pointsC1 += 1
+            }
         case "MM":
-            MM.status = .setByPlayer
-            human.pointsR2 += 1
-            human.pointsC2 += 1
-            human.pointsD1 += 1
-            human.pointsD2 += 1
+            if MM.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                MM.status = .setByPlayer
+                human.pointsR2 += 1
+                human.pointsC2 += 1
+                human.pointsD1 += 1
+                human.pointsD2 += 1
+            }
         case "MR":
-            MR.status = .setByPlayer
-            human.pointsR2 += 1
-            human.pointsC3 += 1
+            if MR.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                MR.status = .setByPlayer
+                human.pointsR2 += 1
+                human.pointsC3 += 1
+            }
         case "BL":
-            BL.status = .setByPlayer
-            human.pointsR3 += 1
-            human.pointsC1 += 1
-            human.pointsD2 += 1
+            if BL.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                BL.status = .setByPlayer
+                human.pointsR3 += 1
+                human.pointsC1 += 1
+                human.pointsD2 += 1
+            }
         case "BM":
-            BM.status = .setByPlayer
-            human.pointsR3 += 1
-            human.pointsC2 += 1
+            if BM.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                BM.status = .setByPlayer
+                human.pointsR3 += 1
+                human.pointsC2 += 1
+            }
         case "BR":
-            BR.status = .setByPlayer
-            human.pointsR3 += 1
-            human.pointsC3 += 1
-            human.pointsD1 += 1
+            if BR.status != .notSet {
+                print("Invalid choice, please try again.")
+                humanSelection(selection: selection)
+            } else {
+                BR.status = .setByPlayer
+                human.pointsR3 += 1
+                human.pointsC3 += 1
+                human.pointsD1 += 1
+            }
         default:
             print("Invalid choice, please try again.")
             humanSelection(selection: selection)
