@@ -193,33 +193,43 @@ func computerSelection() {
     
     switch computerMoveChoice {
     case "TL":
-        if TL.status != .setByPlayer {
+        if TL.status != .notSet {
+            computerSelection()
+        } else {
             TL.status = .setByComputer
             computer.pointsR1 += 1
             computer.pointsC1 += 1
             computer.pointsD1 += 1
         }
     case "TM":
-        if TM.status != .setByPlayer {
+        if TM.status != .notSet {
+            computerSelection()
+        } else {
             TM.status = .setByComputer
             computer.pointsR1 += 1
             computer.pointsC2 += 1
         }
     case "TR":
-        if TR.status != .setByPlayer {
+        if TR.status != .notSet {
+            computerSelection()
+        } else {
             TR.status = .setByComputer
             computer.pointsR1 += 1
             computer.pointsC3 += 1
             computer.pointsD2 += 1
         }
     case "ML":
-        if ML.status != .setByPlayer {
+        if ML.status != .notSet {
+            computerSelection()
+        } else {
             ML.status = .setByComputer
             computer.pointsR2 += 1
             computer.pointsC1 += 1
         }
     case "MM":
-        if MM.status != .setByPlayer {
+        if MM.status != .notSet {
+            computerSelection()
+        } else {
             MM.status = .setByComputer
             computer.pointsR2 += 1
             computer.pointsC2 += 1
@@ -227,26 +237,34 @@ func computerSelection() {
             computer.pointsD2 += 1
         }
     case "MR":
-        if MR.status != .setByPlayer {
+        if MR.status != .notSet {
+            computerSelection()
+        } else {
             MR.status = .setByComputer
             computer.pointsR2 += 1
             computer.pointsC3 += 1
         }
     case "BL":
-        if BL.status != .setByPlayer {
+        if BL.status != .notSet {
+            computerSelection()
+        } else {
             BL.status = .setByComputer
             computer.pointsR3 += 1
             computer.pointsC1 += 1
             computer.pointsD2 += 1
         }
     case "BM":
-        if BM.status != .setByPlayer {
+        if BM.status != .notSet {
+            computerSelection()
+        } else {
             BM.status = .setByComputer
             computer.pointsR3 += 1
             computer.pointsC2 += 1
         }
     case "BR":
-        if BR.status != .setByPlayer {
+        if BR.status != .notSet {
+            computerSelection()
+        } else {
             BR.status = .setByComputer
             computer.pointsR3 += 1
             computer.pointsC3 += 1
