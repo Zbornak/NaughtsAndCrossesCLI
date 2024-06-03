@@ -86,7 +86,7 @@ func computerTurn() {
 }
 
 func humanSelection(selection: String) {
-    print("Make your choice: ", terminator: "")
+    print("Make your choice (for rules type 'R'): ", terminator: "")
     
     if let selection = readLine()?.uppercased() {
         switch selection {
@@ -177,6 +177,14 @@ func humanSelection(selection: String) {
                 human.pointsC3 += 1
                 human.pointsD1 += 1
             }
+        case "R":
+            print("""
+            Take turns marking the Game Board (you are 'O' and the computer is 'X').
+            The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
+            
+            """)
+            drawBoard()
+            humanSelection(selection: selection)
         default:
             print("Invalid choice, please try again.")
             humanSelection(selection: selection)
