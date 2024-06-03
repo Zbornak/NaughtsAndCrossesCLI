@@ -32,6 +32,10 @@ class BoardPiece {
         } 
     }
     
+    func reset() {
+        status = .notSet
+    }
+    
     init(label: String, status: SetStatus) {
         self.label = label
         self.status = status

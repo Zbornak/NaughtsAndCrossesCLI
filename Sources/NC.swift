@@ -18,26 +18,8 @@ var BL = BoardPiece(label: "BL", status: .notSet)
 var BM = BoardPiece(label: "BM", status: .notSet)
 var BR = BoardPiece(label: "BR", status: .notSet)
 
-var playerChoice = ""
-var playerPointsR1 = 0
-var playerPointsR2 = 0
-var playerPointsR3 = 0
-var playerPointsC1 = 0
-var playerPointsC2 = 0
-var playerPointsC3 = 0
-var playerPointsD1 = 0
-var playerPointsD2 = 0
-var playerWins = false
-
-var computerPointsR1 = 0
-var computerPointsR2 = 0
-var computerPointsR3 = 0
-var computerPointsC1 = 0
-var computerPointsC2 = 0
-var computerPointsC3 = 0
-var computerPointsD1 = 0
-var computerPointsD2 = 0
-var computerWins = false
+var human = Player()
+var computer = Player()
 
 var replayChoice = ""
 
@@ -51,41 +33,23 @@ struct NaughtsAndCrosses {
 }
 
 func newGame() {
-    TL.status = .notSet
-    TM.status = .notSet
-    TR.status = .notSet
-    ML.status = .notSet
-    MM.status = .notSet
-    MR.status = .notSet
-    BL.status = .notSet
-    BM.status = .notSet
-    BR.status = .notSet
+    TL.reset()
+    TM.reset()
+    TR.reset()
+    ML.reset()
+    MM.reset()
+    MR.reset()
+    BL.reset()
+    BM.reset()
+    BR.reset()
     
-    playerPointsR1 = 0
-    playerPointsR2 = 0
-    playerPointsR3 = 0
-    playerPointsC1 = 0
-    playerPointsC2 = 0
-    playerPointsC3 = 0
-    playerPointsD1 = 0
-    playerPointsD2 = 0
-    
-    computerPointsR1 = 0
-    computerPointsR2 = 0
-    computerPointsR3 = 0
-    computerPointsC1 = 0
-    computerPointsC2 = 0
-    computerPointsC3 = 0
-    computerPointsD1 = 0
-    computerPointsD2 = 0
-    
-    playerWins = false
-    computerWins = false
+    human.reset()
+    computer.reset()
     
     drawBoard()
     
-    while !playerWins || !computerWins {
-        playerTurn()
+    while !human.win || !computer.win {
+        humanTurn()
         computerTurn()
     }
 }
@@ -108,8 +72,8 @@ func drawBoard() {
     print("")
 }
 
-func playerTurn() {
-    playerSelection(selection: playerChoice)
+func humanTurn() {
+    humanSelection(selection: human.choice)
     drawBoard()
 }
 
@@ -118,56 +82,56 @@ func computerTurn() {
     drawBoard()
 }
 
-func playerSelection(selection: String) {
+func humanSelection(selection: String) {
     print("Make your choice: ", terminator: "")
     
     if let selection = readLine()?.uppercased() {
         switch selection {
         case "TL":
             TL.status = .setByPlayer
-            playerPointsR1 += 1
-            playerPointsC1 += 1
-            playerPointsD1 += 1
+            human.pointsR1 += 1
+            human.pointsC1 += 1
+            human.pointsD1 += 1
         case "TM":
             TM.status = .setByPlayer
-            playerPointsR1 += 1
-            playerPointsC2 += 1
+            human.pointsR1 += 1
+            human.pointsC2 += 1
         case "TR":
             TR.status = .setByPlayer
-            playerPointsR1 += 1
-            playerPointsC3 += 1
-            playerPointsD2 += 1
+            human.pointsR1 += 1
+            human.pointsC3 += 1
+            human.pointsD2 += 1
         case "ML":
             ML.status = .setByPlayer
-            playerPointsR2 += 1
-            playerPointsC1 += 1
+            human.pointsR2 += 1
+            human.pointsC1 += 1
         case "MM":
             MM.status = .setByPlayer
-            playerPointsR2 += 1
-            playerPointsC2 += 1
-            playerPointsD1 += 1
-            playerPointsD2 += 1
+            human.pointsR2 += 1
+            human.pointsC2 += 1
+            human.pointsD1 += 1
+            human.pointsD2 += 1
         case "MR":
             MR.status = .setByPlayer
-            playerPointsR2 += 1
-            playerPointsC3 += 1
+            human.pointsR2 += 1
+            human.pointsC3 += 1
         case "BL":
             BL.status = .setByPlayer
-            playerPointsR3 += 1
-            playerPointsC1 += 1
-            playerPointsD2 += 1
+            human.pointsR3 += 1
+            human.pointsC1 += 1
+            human.pointsD2 += 1
         case "BM":
             BM.status = .setByPlayer
-            playerPointsR3 += 1
-            playerPointsC2 += 1
+            human.pointsR3 += 1
+            human.pointsC2 += 1
         case "BR":
             BR.status = .setByPlayer
-            playerPointsR3 += 1
-            playerPointsC3 += 1
-            playerPointsD1 += 1
+            human.pointsR3 += 1
+            human.pointsC3 += 1
+            human.pointsD1 += 1
         default:
             print("Invalid choice, please try again.")
-            playerSelection(selection: selection)
+            humanSelection(selection: selection)
         }
     }
     
@@ -177,11 +141,11 @@ func playerSelection(selection: String) {
 func computerSelection() {
     print("My choice is:")
     
-    //until player reaches 2 win points:
+    //until human reaches 2 win points:
     
     
-    // if player is about to win (2 win points):
-    if playerPointsR1 == 2 {
+    // if human is about to win (2 win points):
+    if human.pointsR1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
         } else if TM.status != .setByPlayer {
@@ -189,7 +153,7 @@ func computerSelection() {
         } else {
             TR.status = .setByComputer
         }
-    } else if playerPointsR2 == 2 {
+    } else if human.pointsR2 == 2 {
         if ML.status != .setByPlayer {
             ML.status = .setByComputer
         } else if MM.status != .setByPlayer {
@@ -197,7 +161,7 @@ func computerSelection() {
         } else {
             MR.status = .setByComputer
         }
-    } else if playerPointsR3 == 2 {
+    } else if human.pointsR3 == 2 {
         if BL.status != .setByPlayer {
             BL.status = .setByComputer
         } else if BM.status != .setByPlayer {
@@ -205,7 +169,7 @@ func computerSelection() {
         } else {
             BR.status = .setByComputer
         }
-    } else if playerPointsC1 == 2 {
+    } else if human.pointsC1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
         } else if ML.status != .setByPlayer {
@@ -213,7 +177,7 @@ func computerSelection() {
         } else {
             BL.status = .setByComputer
         }
-    } else if playerPointsC2 == 2 {
+    } else if human.pointsC2 == 2 {
         if TM.status != .setByPlayer {
             TM.status = .setByComputer
         } else if MM.status != .setByPlayer {
@@ -221,7 +185,7 @@ func computerSelection() {
         } else {
             BM.status = .setByComputer
         }
-    } else if playerPointsC3 == 2 {
+    } else if human.pointsC3 == 2 {
         if TR.status != .setByPlayer {
             TR.status = .setByComputer
         } else if MR.status != .setByPlayer {
@@ -229,7 +193,7 @@ func computerSelection() {
         } else {
             BR.status = .setByComputer
         }
-    } else if playerPointsD1 == 2 {
+    } else if human.pointsD1 == 2 {
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
         } else if MM.status != .setByPlayer {
@@ -237,7 +201,7 @@ func computerSelection() {
         } else {
             BR.status = .setByComputer
         }
-    } else if playerPointsD2 == 2 {
+    } else if human.pointsD2 == 2 {
         if BL.status != .setByPlayer {
             BL.status = .setByComputer
         } else if MM.status != .setByPlayer {
@@ -251,14 +215,14 @@ func computerSelection() {
 }
 
 func checkGameState() {
-    if playerPointsR1 == 3 || playerPointsR2 == 3 || playerPointsR1 == 3 || playerPointsC1 == 3 || playerPointsC2 == 3 || playerPointsC3 == 3 || playerPointsD1 == 3 || playerPointsD2 == 3 {
-        playerWins = true
+    if human.pointsR1 == 3 || human.pointsR2 == 3 || human.pointsR1 == 3 || human.pointsC1 == 3 || human.pointsC2 == 3 || human.pointsC3 == 3 || human.pointsD1 == 3 || human.pointsD2 == 3 {
+        human.win = true
         Figlet.say("You win")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
-    } else if computerPointsR1 == 3 || computerPointsR2 == 3 || computerPointsR1 == 3 || computerPointsC1 == 3 || computerPointsC2 == 3 || computerPointsC3 == 3 || computerPointsD1 == 3 || computerPointsD2 == 3 {
-        computerWins = true
+    } else if computer.pointsR1 == 3 || computer.pointsR2 == 3 || computer.pointsR1 == 3 || computer.pointsC1 == 3 || computer.pointsC2 == 3 || computer.pointsC3 == 3 || computer.pointsD1 == 3 || computer.pointsD2 == 3 {
+        computer.win = true
         Figlet.say("You lose")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
