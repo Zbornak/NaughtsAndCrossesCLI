@@ -195,38 +195,62 @@ func computerSelection() {
     case "TL":
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
+            computer.pointsR1 += 1
+            computer.pointsC1 += 1
+            computer.pointsD1 += 1
         }
     case "TM":
         if TM.status != .setByPlayer {
             TM.status = .setByComputer
+            computer.pointsR1 += 1
+            computer.pointsC2 += 1
         }
     case "TR":
         if TR.status != .setByPlayer {
             TR.status = .setByComputer
+            computer.pointsR1 += 1
+            computer.pointsC3 += 1
+            computer.pointsD2 += 1
         }
     case "ML":
         if ML.status != .setByPlayer {
             ML.status = .setByComputer
+            computer.pointsR2 += 1
+            computer.pointsC1 += 1
         }
     case "MM":
         if MM.status != .setByPlayer {
             MM.status = .setByComputer
+            computer.pointsR2 += 1
+            computer.pointsC2 += 1
+            computer.pointsD1 += 1
+            computer.pointsD2 += 1
         }
     case "MR":
         if MR.status != .setByPlayer {
             MR.status = .setByComputer
+            computer.pointsR2 += 1
+            computer.pointsC3 += 1
         }
     case "BL":
         if BL.status != .setByPlayer {
             BL.status = .setByComputer
+            computer.pointsR3 += 1
+            computer.pointsC1 += 1
+            computer.pointsD2 += 1
         }
     case "BM":
         if BM.status != .setByPlayer {
             BM.status = .setByComputer
+            computer.pointsR3 += 1
+            computer.pointsC2 += 1
         }
     case "BR":
         if BR.status != .setByPlayer {
             BR.status = .setByComputer
+            computer.pointsR3 += 1
+            computer.pointsC3 += 1
+            computer.pointsD1 += 1
         }
     default:
         print("Computer could not make a choice this time")
