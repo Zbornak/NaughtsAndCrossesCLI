@@ -8,7 +8,6 @@
 import Foundation
 
 struct Player {
-    var choice = ""
     var pointsR1 = 0
     var pointsR2 = 0
     var pointsR3 = 0
