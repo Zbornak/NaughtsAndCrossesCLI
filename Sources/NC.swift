@@ -21,7 +21,8 @@ var BR = BoardPiece(label: "BR", status: .notSet)
 var human = Player()
 var computer = Player()
 
-var moveChoice = ""
+var humanMoveChoice = ""
+var computerMoveChoice = ""
 
 var replayChoice = ""
 
@@ -75,7 +76,7 @@ func drawBoard() {
 }
 
 func humanTurn() {
-    humanSelection(selection: moveChoice)
+    humanSelection(selection: humanMoveChoice)
     drawBoard()
 }
 
