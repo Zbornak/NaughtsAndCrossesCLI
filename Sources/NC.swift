@@ -189,7 +189,6 @@ func humanSelection(selection: String) {
 func computerSelection() {
     let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
     computerMoveChoice = computerChoices.randomElement() ?? "No value found"
-    print("My choice is \(computerMoveChoice)")
     
     switch computerMoveChoice {
     case "TL":
