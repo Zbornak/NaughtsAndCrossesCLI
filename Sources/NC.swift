@@ -187,76 +187,49 @@ func humanSelection(selection: String) {
 }
 
 func computerSelection() {
-    print("My choice is:")
+    let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
+    computerMoveChoice = computerChoices.randomElement() ?? "No value found"
+    print("My choice is \(computerMoveChoice)")
     
-    //until human reaches 2 win points:
-    
-    
-    // if human is about to win (2 win points):
-    if human.pointsR1 == 2 {
+    switch computerMoveChoice {
+    case "TL":
         if TL.status != .setByPlayer {
             TL.status = .setByComputer
-        } else if TM.status != .setByPlayer {
-            TM.status = .setByComputer
-        } else {
-            TR.status = .setByComputer
         }
-    } else if human.pointsR2 == 2 {
-        if ML.status != .setByPlayer {
-            ML.status = .setByComputer
-        } else if MM.status != .setByPlayer {
-            MM.status = .setByComputer
-        } else {
-            MR.status = .setByComputer
-        }
-    } else if human.pointsR3 == 2 {
-        if BL.status != .setByPlayer {
-            BL.status = .setByComputer
-        } else if BM.status != .setByPlayer {
-            BM.status = .setByComputer
-        } else {
-            BR.status = .setByComputer
-        }
-    } else if human.pointsC1 == 2 {
-        if TL.status != .setByPlayer {
-            TL.status = .setByComputer
-        } else if ML.status != .setByPlayer {
-            ML.status = .setByComputer
-        } else {
-            BL.status = .setByComputer
-        }
-    } else if human.pointsC2 == 2 {
+    case "TM":
         if TM.status != .setByPlayer {
             TM.status = .setByComputer
-        } else if MM.status != .setByPlayer {
-            MM.status = .setByComputer
-        } else {
-            BM.status = .setByComputer
         }
-    } else if human.pointsC3 == 2 {
+    case "TR":
         if TR.status != .setByPlayer {
             TR.status = .setByComputer
-        } else if MR.status != .setByPlayer {
-            MR.status = .setByComputer
-        } else {
-            BR.status = .setByComputer
         }
-    } else if human.pointsD1 == 2 {
-        if TL.status != .setByPlayer {
-            TL.status = .setByComputer
-        } else if MM.status != .setByPlayer {
+    case "ML":
+        if ML.status != .setByPlayer {
+            ML.status = .setByComputer
+        }
+    case "MM":
+        if MM.status != .setByPlayer {
             MM.status = .setByComputer
-        } else {
-            BR.status = .setByComputer
         }
-    } else if human.pointsD2 == 2 {
+    case "MR":
+        if MR.status != .setByPlayer {
+            MR.status = .setByComputer
+        }
+    case "BL":
         if BL.status != .setByPlayer {
             BL.status = .setByComputer
-        } else if MM.status != .setByPlayer {
-            MM.status = .setByComputer
-        } else {
-            TR.status = .setByComputer
         }
+    case "BM":
+        if BM.status != .setByPlayer {
+            BM.status = .setByComputer
+        }
+    case "BR":
+        if BR.status != .setByPlayer {
+            BR.status = .setByComputer
+        }
+    default:
+        print("Computer could not make a choice this time")
     }
     
     checkGameState()
