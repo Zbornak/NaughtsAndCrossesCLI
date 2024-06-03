@@ -26,6 +26,12 @@ var computerMoveChoice = ""
 
 var replayChoice = ""
 
+let rules = """
+            Take turns marking the Game Board (you are 'O' and the computer is 'X').
+            The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
+            
+            """
+
 @main
 struct NaughtsAndCrosses {
     static func main() {
@@ -178,11 +184,7 @@ func humanSelection(selection: String) {
                 human.pointsD1 += 1
             }
         case "R":
-            print("""
-            Take turns marking the Game Board (you are 'O' and the computer is 'X').
-            The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
-            
-            """)
+            print(rules)
             drawBoard()
             humanSelection(selection: selection)
         default:
@@ -287,12 +289,14 @@ func computerSelection() {
 func checkGameState() {
     if human.pointsR1 == 3 || human.pointsR2 == 3 || human.pointsR1 == 3 || human.pointsC1 == 3 || human.pointsC2 == 3 || human.pointsC3 == 3 || human.pointsD1 == 3 || human.pointsD2 == 3 {
         human.win = true
+        drawBoard()
         Figlet.say("You win")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
     } else if computer.pointsR1 == 3 || computer.pointsR2 == 3 || computer.pointsR1 == 3 || computer.pointsC1 == 3 || computer.pointsC2 == 3 || computer.pointsC3 == 3 || computer.pointsD1 == 3 || computer.pointsD2 == 3 {
         computer.win = true
+        drawBoard()
         Figlet.say("You lose")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
