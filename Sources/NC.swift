@@ -300,74 +300,77 @@ func computerSelection() {
 
 func calculateComputerMove() -> String {
     let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
+    var choice = ""
     
     if human.pointsR1 == 2 {
         if TL.status == .notSet {
-            return "TL"
+            choice = "TL"
         } else if TM.status == .notSet {
-            return "TM"
-        } else {
-            return "TR"
+            choice = "TM"
+        } else if TR.status == .notSet {
+            choice = "TR"
         }
     } else if human.pointsR2 == 4 {
         if ML.status == .notSet {
-            return "ML"
+            choice = "ML"
         } else if MM.status == .notSet {
-            return "MM"
-        } else {
-            return "MR"
+            choice = "MM"
+        } else if MR.status == .notSet {
+            choice = "MR"
         }
     } else if human.pointsR3 == 8 {
         if BL.status == .notSet {
-            return "BL"
+            choice = "BL"
         } else if BM.status == .notSet {
-            return "BM"
-        } else {
-            return "BR"
+            choice = "BM"
+        } else if BR.status == .notSet {
+            choice = "BR"
         }
     } else if human.pointsC1 == 16 {
         if TL.status == .notSet {
-            return "TL"
+            choice = "TL"
         } else if ML.status == .notSet {
-            return "ML"
-        } else {
-            return "BL"
+            choice = "ML"
+        } else if BL.status == .notSet {
+            choice = "BL"
         }
     } else if human.pointsC2 == 32 {
         if TM.status == .notSet {
-            return "TM"
+            choice = "TM"
         } else if MM.status == .notSet {
-            return "MM"
-        } else {
-            return "BM"
+            choice = "MM"
+        } else if BM.status == .notSet {
+            choice = "BM"
         }
     } else if human.pointsC3 == 64 {
         if TR.status == .notSet {
-            return "TR"
+            choice = "TR"
         } else if MR.status == .notSet {
-            return "MR"
-        } else {
-            return "BR"
+            choice = "MR"
+        } else if BR.status == .notSet {
+            choice = "BR"
         }
     } else if human.pointsD1 == 128 {
         if TL.status == .notSet {
-            return "TL"
+            choice = "TL"
         } else if MM.status == .notSet {
-            return "MM"
-        } else {
-            return "BR"
+            choice = "MM"
+        } else if BR.status == .notSet {
+            choice = "BR"
         }
     } else if human.pointsD2 == 256 {
         if BL.status == .notSet {
-            return "BL"
+            choice = "BL"
         } else if MM.status == .notSet {
-            return "MM"
-        } else {
-            return "TR"
+            choice = "MM"
+        } else if TR.status == .notSet {
+            choice = "TR"
         }
     } else {
-        return computerChoices.randomElement() ?? "No value found"
+        choice = computerChoices.randomElement() ?? "No value found"
     }
+    
+    return choice
 }
 
 func checkGameState() {
