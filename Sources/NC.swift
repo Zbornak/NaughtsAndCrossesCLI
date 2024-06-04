@@ -5,6 +5,7 @@
 //  Created by Mark Strijdom on 29/05/2024.
 //
 
+import ArgumentParser
 import Figlet
 import Foundation
 
@@ -33,10 +34,14 @@ let rules = """
             """
 
 @main
-struct NaughtsAndCrosses {
-    static func main() {
+struct NaughtsAndCrosses: ParsableCommand {
+    @Option(help: "Choose board piece (either 'X' or 'O')")
+    var piece: String
+    
+    mutating func run() throws {
         Figlet.say("Naughts & Crosses")
         print("(c) zbornak, 2024")
+        print(piece)
         newGame()
     }
 }
