@@ -371,14 +371,14 @@ func calculateComputerMove() -> String {
 }
 
 func checkGameState() {
-    if human.pointsR1 == 3 || human.pointsR2 == 3 || human.pointsR1 == 3 || human.pointsC1 == 3 || human.pointsC2 == 3 || human.pointsC3 == 3 || human.pointsD1 == 3 || human.pointsD2 == 3 {
+    if human.pointsR1 == 3 || human.pointsR2 == 6 || human.pointsR3 == 3 || human.pointsC1 == 3 || human.pointsC2 == 3 || human.pointsC3 == 3 || human.pointsD1 == 3 || human.pointsD2 == 3 {
         human.win = true
         drawBoard()
         Figlet.say("You win")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
-    } else if computer.pointsR1 == 3 || computer.pointsR2 == 3 || computer.pointsR1 == 3 || computer.pointsC1 == 3 || computer.pointsC2 == 3 || computer.pointsC3 == 3 || computer.pointsD1 == 3 || computer.pointsD2 == 3 {
+    } else if computer.pointsR1 == 3 || computer.pointsR2 == 3 || computer.pointsR3 == 3 || computer.pointsC1 == 3 || computer.pointsC2 == 3 || computer.pointsC3 == 3 || computer.pointsD1 == 3 || computer.pointsD2 == 3 {
         computer.win = true
         drawBoard()
         Figlet.say("You lose")

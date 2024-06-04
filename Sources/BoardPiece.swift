@@ -26,12 +26,6 @@ class BoardPiece {
         case notSet, setByPlayer, setByComputer
     }
     
-    func setStatus() {
-        if status == .notSet {
-            status = .setByComputer
-        } 
-    }
-    
     func reset() {
         status = .notSet
     }
