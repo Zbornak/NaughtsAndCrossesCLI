@@ -300,7 +300,26 @@ func computerSelection() {
 
 func calculateComputerMove() -> String {
     let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
-    return computerChoices.randomElement() ?? "No value found"
+    
+    if human.pointsR1 == 2 {
+        return ""
+    } else if human.pointsR2 == 2 {
+        return ""
+    } else if human.pointsR3 == 2 {
+        return ""
+    } else if human.pointsC1 == 2 {
+        return ""
+    } else if human.pointsC2 == 2 {
+        return ""
+    } else if human.pointsC3 == 2 {
+        return ""
+    } else if human.pointsD1 == 2 {
+        return ""
+    } else if human.pointsD2 == 2 {
+        return ""
+    } else {
+        return computerChoices.randomElement() ?? "No value found"
+    }
 }
 
 func checkGameState() {
