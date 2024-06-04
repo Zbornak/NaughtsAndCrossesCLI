@@ -23,6 +23,8 @@ var human = Player()
 var computer = Player()
 
 var humanMoveChoice = ""
+var humanPieceChoice = ""
+
 var computerMoveChoice = ""
 
 var replayChoice = ""
@@ -39,9 +41,9 @@ struct NaughtsAndCrosses: ParsableCommand {
     var piece: String
     
     mutating func run() throws {
+        humanPieceChoice = piece.uppercased()
         Figlet.say("Naughts & Crosses")
         print("(c) zbornak, 2024")
-        print(piece)
         newGame()
     }
 }
