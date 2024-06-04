@@ -210,8 +210,7 @@ func humanSelection(selection: String) {
 }
 
 func computerSelection() {
-    let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
-    var computerMoveChoice = computerChoices.randomElement() ?? "No value found"
+    let computerMoveChoice = calculateComputerMove()
     
     switch computerMoveChoice {
     case "TL":
@@ -297,6 +296,11 @@ func computerSelection() {
     }
     
     checkGameState()
+}
+
+func calculateComputerMove() -> String {
+    let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
+    return computerChoices.randomElement() ?? "No value found"
 }
 
 func checkGameState() {
