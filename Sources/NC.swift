@@ -297,9 +297,6 @@ func computerSelection() {
         print("Computer could not make a choice this time")
     }
     
-    //check to see if computerMoveChoice is ever empty (it is sometimes?)
-    print("Computer's move: \(computerMoveChoice)")
-    
     checkGameState()
 }
 
