@@ -25,13 +25,13 @@ var computer = Player()
 var humanMoveChoice = ""
 var humanPieceChoice = ""
 
-var computerMoveChoice = ""
-
 var replayChoice = ""
 
 let rules = """
-            Take turns marking the Game Board (you are 'O' and the computer is 'X').
-            The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
+            Take turns marking the Game Board.
+            The player who succeeds in placing 
+            three of their marks in a horizontal,
+            vertical, or diagonal row is the winner.
             
             """
 
@@ -211,7 +211,7 @@ func humanSelection(selection: String) {
 
 func computerSelection() {
     let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
-    computerMoveChoice = computerChoices.randomElement() ?? "No value found"
+    var computerMoveChoice = computerChoices.randomElement() ?? "No value found"
     
     switch computerMoveChoice {
     case "TL":
