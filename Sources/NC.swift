@@ -40,6 +40,12 @@ struct NaughtsAndCrosses: ParsableCommand {
     @Option(help: "Choose board piece (either 'X' or 'O')")
     var piece: String
     
+    mutating func validate() throws {
+        guard piece == "X" || piece == "O" || piece == "x" || piece == "o" else {
+            throw ValidationError("Please choose either 'X' or 'O'")
+        }
+    }
+    
     mutating func run() throws {
         humanPieceChoice = piece.uppercased()
         Figlet.say("Naughts & Crosses")
