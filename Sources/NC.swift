@@ -302,21 +302,69 @@ func calculateComputerMove() -> String {
     let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
     
     if human.pointsR1 == 2 {
-        return ""
+        if TL.status == .notSet {
+            return "TL"
+        } else if TM.status == .notSet {
+            return "TM"
+        } else {
+            return "TR"
+        }
     } else if human.pointsR2 == 2 {
-        return ""
+        if ML.status == .notSet {
+            return "ML"
+        } else if MM.status == .notSet {
+            return "MM"
+        } else {
+            return "MR"
+        }
     } else if human.pointsR3 == 2 {
-        return ""
+        if BL.status == .notSet {
+            return "BL"
+        } else if BM.status == .notSet {
+            return "BM"
+        } else {
+            return "BR"
+        }
     } else if human.pointsC1 == 2 {
-        return ""
+        if TL.status == .notSet {
+            return "TL"
+        } else if ML.status == .notSet {
+            return "ML"
+        } else {
+            return "BL"
+        }
     } else if human.pointsC2 == 2 {
-        return ""
+        if TM.status == .notSet {
+            return "TM"
+        } else if MM.status == .notSet {
+            return "MM"
+        } else {
+            return "BM"
+        }
     } else if human.pointsC3 == 2 {
-        return ""
+        if TR.status == .notSet {
+            return "TR"
+        } else if MR.status == .notSet {
+            return "MR"
+        } else {
+            return "BR"
+        }
     } else if human.pointsD1 == 2 {
-        return ""
+        if TL.status == .notSet {
+            return "TL"
+        } else if MM.status == .notSet {
+            return "MM"
+        } else {
+            return "BR"
+        }
     } else if human.pointsD2 == 2 {
-        return ""
+        if BL.status == .notSet {
+            return "BL"
+        } else if MM.status == .notSet {
+            return "MM"
+        } else {
+            return "TR"
+        }
     } else {
         return computerChoices.randomElement() ?? "No value found"
     }
