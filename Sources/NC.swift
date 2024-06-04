@@ -28,10 +28,12 @@ var humanPieceChoice = ""
 var replayChoice = ""
 
 let rules = """
-            Take turns marking the Game Board.
-            The player who succeeds in placing 
-            three of their marks in a horizontal,
-            vertical, or diagonal row is the winner.
+            @##########################################@
+            # Take turns marking the Game Board.       #
+            # The player who succeeds in placing       #
+            # three of their marks in a horizontal,    #
+            # vertical, or diagonal row is the winner. #
+            @##########################################@
             
             """
 
