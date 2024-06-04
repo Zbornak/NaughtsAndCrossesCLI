@@ -116,8 +116,8 @@ func humanSelection(selection: String) {
             } else {
                 TL.status = .setByPlayer
                 human.pointsR1 += 1
-                human.pointsC1 += 1
-                human.pointsD1 += 1
+                human.pointsC1 += 8
+                human.pointsD1 += 64
             }
         case "TM":
             if TM.status != .notSet {
@@ -126,7 +126,7 @@ func humanSelection(selection: String) {
             } else {
                 TM.status = .setByPlayer
                 human.pointsR1 += 1
-                human.pointsC2 += 1
+                human.pointsC2 += 16
             }
         case "TR":
             if TR.status != .notSet {
@@ -135,8 +135,8 @@ func humanSelection(selection: String) {
             } else {
                 TR.status = .setByPlayer
                 human.pointsR1 += 1
-                human.pointsC3 += 1
-                human.pointsD2 += 1
+                human.pointsC3 += 32
+                human.pointsD2 += 128
             }
         case "ML":
             if ML.status != .notSet {
@@ -144,8 +144,8 @@ func humanSelection(selection: String) {
                 humanSelection(selection: selection)
             } else {
                 ML.status = .setByPlayer
-                human.pointsR2 += 1
-                human.pointsC1 += 1
+                human.pointsR2 += 2
+                human.pointsC1 += 8
             }
         case "MM":
             if MM.status != .notSet {
@@ -153,10 +153,10 @@ func humanSelection(selection: String) {
                 humanSelection(selection: selection)
             } else {
                 MM.status = .setByPlayer
-                human.pointsR2 += 1
-                human.pointsC2 += 1
-                human.pointsD1 += 1
-                human.pointsD2 += 1
+                human.pointsR2 += 2
+                human.pointsC2 += 16
+                human.pointsD1 += 64
+                human.pointsD2 += 128
             }
         case "MR":
             if MR.status != .notSet {
@@ -164,8 +164,8 @@ func humanSelection(selection: String) {
                 humanSelection(selection: selection)
             } else {
                 MR.status = .setByPlayer
-                human.pointsR2 += 1
-                human.pointsC3 += 1
+                human.pointsR2 += 2
+                human.pointsC3 += 32
             }
         case "BL":
             if BL.status != .notSet {
@@ -173,9 +173,9 @@ func humanSelection(selection: String) {
                 humanSelection(selection: selection)
             } else {
                 BL.status = .setByPlayer
-                human.pointsR3 += 1
-                human.pointsC1 += 1
-                human.pointsD2 += 1
+                human.pointsR3 += 4
+                human.pointsC1 += 8
+                human.pointsD2 += 128
             }
         case "BM":
             if BM.status != .notSet {
@@ -183,8 +183,8 @@ func humanSelection(selection: String) {
                 humanSelection(selection: selection)
             } else {
                 BM.status = .setByPlayer
-                human.pointsR3 += 1
-                human.pointsC2 += 1
+                human.pointsR3 += 4
+                human.pointsC2 += 16
             }
         case "BR":
             if BR.status != .notSet {
@@ -192,9 +192,9 @@ func humanSelection(selection: String) {
                 humanSelection(selection: selection)
             } else {
                 BR.status = .setByPlayer
-                human.pointsR3 += 1
-                human.pointsC3 += 1
-                human.pointsD1 += 1
+                human.pointsR3 += 4
+                human.pointsC3 += 32
+                human.pointsD1 += 64
             }
         case "R":
             print(rules)
@@ -219,8 +219,8 @@ func computerSelection() {
         } else {
             TL.status = .setByComputer
             computer.pointsR1 += 1
-            computer.pointsC1 += 1
-            computer.pointsD1 += 1
+            computer.pointsC1 += 8
+            computer.pointsD1 += 64
         }
     case "TM":
         if TM.status != .notSet {
@@ -228,7 +228,7 @@ func computerSelection() {
         } else {
             TM.status = .setByComputer
             computer.pointsR1 += 1
-            computer.pointsC2 += 1
+            computer.pointsC2 += 16
         }
     case "TR":
         if TR.status != .notSet {
@@ -236,60 +236,60 @@ func computerSelection() {
         } else {
             TR.status = .setByComputer
             computer.pointsR1 += 1
-            computer.pointsC3 += 1
-            computer.pointsD2 += 1
+            computer.pointsC3 += 32
+            computer.pointsD2 += 128
         }
     case "ML":
         if ML.status != .notSet {
             computerSelection()
         } else {
             ML.status = .setByComputer
-            computer.pointsR2 += 1
-            computer.pointsC1 += 1
+            computer.pointsR2 += 2
+            computer.pointsC1 += 8
         }
     case "MM":
         if MM.status != .notSet {
             computerSelection()
         } else {
             MM.status = .setByComputer
-            computer.pointsR2 += 1
-            computer.pointsC2 += 1
-            computer.pointsD1 += 1
-            computer.pointsD2 += 1
+            computer.pointsR2 += 2
+            computer.pointsC2 += 16
+            computer.pointsD1 += 64
+            computer.pointsD2 += 128
         }
     case "MR":
         if MR.status != .notSet {
             computerSelection()
         } else {
             MR.status = .setByComputer
-            computer.pointsR2 += 1
-            computer.pointsC3 += 1
+            computer.pointsR2 += 2
+            computer.pointsC3 += 32
         }
     case "BL":
         if BL.status != .notSet {
             computerSelection()
         } else {
             BL.status = .setByComputer
-            computer.pointsR3 += 1
-            computer.pointsC1 += 1
-            computer.pointsD2 += 1
+            computer.pointsR3 += 4
+            computer.pointsC1 += 8
+            computer.pointsD2 += 128
         }
     case "BM":
         if BM.status != .notSet {
             computerSelection()
         } else {
             BM.status = .setByComputer
-            computer.pointsR3 += 1
-            computer.pointsC2 += 1
+            computer.pointsR3 += 4
+            computer.pointsC2 += 16
         }
     case "BR":
         if BR.status != .notSet {
             computerSelection()
         } else {
             BR.status = .setByComputer
-            computer.pointsR3 += 1
-            computer.pointsC3 += 1
-            computer.pointsD1 += 1
+            computer.pointsR3 += 4
+            computer.pointsC3 += 32
+            computer.pointsD1 += 64
         }
     default:
         print("Computer could not make a choice this time")
@@ -309,7 +309,7 @@ func calculateComputerMove() -> String {
         } else {
             return "TR"
         }
-    } else if human.pointsR2 == 2 {
+    } else if human.pointsR2 == 4 {
         if ML.status == .notSet {
             return "ML"
         } else if MM.status == .notSet {
@@ -317,7 +317,7 @@ func calculateComputerMove() -> String {
         } else {
             return "MR"
         }
-    } else if human.pointsR3 == 2 {
+    } else if human.pointsR3 == 8 {
         if BL.status == .notSet {
             return "BL"
         } else if BM.status == .notSet {
@@ -325,7 +325,7 @@ func calculateComputerMove() -> String {
         } else {
             return "BR"
         }
-    } else if human.pointsC1 == 2 {
+    } else if human.pointsC1 == 16 {
         if TL.status == .notSet {
             return "TL"
         } else if ML.status == .notSet {
@@ -333,7 +333,7 @@ func calculateComputerMove() -> String {
         } else {
             return "BL"
         }
-    } else if human.pointsC2 == 2 {
+    } else if human.pointsC2 == 32 {
         if TM.status == .notSet {
             return "TM"
         } else if MM.status == .notSet {
@@ -341,7 +341,7 @@ func calculateComputerMove() -> String {
         } else {
             return "BM"
         }
-    } else if human.pointsC3 == 2 {
+    } else if human.pointsC3 == 64 {
         if TR.status == .notSet {
             return "TR"
         } else if MR.status == .notSet {
@@ -349,7 +349,7 @@ func calculateComputerMove() -> String {
         } else {
             return "BR"
         }
-    } else if human.pointsD1 == 2 {
+    } else if human.pointsD1 == 128 {
         if TL.status == .notSet {
             return "TL"
         } else if MM.status == .notSet {
@@ -357,7 +357,7 @@ func calculateComputerMove() -> String {
         } else {
             return "BR"
         }
-    } else if human.pointsD2 == 2 {
+    } else if human.pointsD2 == 256 {
         if BL.status == .notSet {
             return "BL"
         } else if MM.status == .notSet {
@@ -371,14 +371,14 @@ func calculateComputerMove() -> String {
 }
 
 func checkGameState() {
-    if human.pointsR1 == 3 || human.pointsR2 == 6 || human.pointsR3 == 3 || human.pointsC1 == 3 || human.pointsC2 == 3 || human.pointsC3 == 3 || human.pointsD1 == 3 || human.pointsD2 == 3 {
+    if human.pointsR1 == 3 || human.pointsR2 == 6 || human.pointsR3 == 12 || human.pointsC1 == 24 || human.pointsC2 == 48 || human.pointsC3 == 96 || human.pointsD1 == 192 || human.pointsD2 == 384 {
         human.win = true
         drawBoard()
         Figlet.say("You win")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
-    } else if computer.pointsR1 == 3 || computer.pointsR2 == 3 || computer.pointsR3 == 3 || computer.pointsC1 == 3 || computer.pointsC2 == 3 || computer.pointsC3 == 3 || computer.pointsD1 == 3 || computer.pointsD2 == 3 {
+    } else if computer.pointsR1 == 3 || computer.pointsR2 == 6 || computer.pointsR3 == 12 || computer.pointsC1 == 24 || computer.pointsC2 == 48 || computer.pointsC3 == 96 || computer.pointsD1 == 192 || computer.pointsD2 == 384 {
         computer.win = true
         drawBoard()
         Figlet.say("You lose")
