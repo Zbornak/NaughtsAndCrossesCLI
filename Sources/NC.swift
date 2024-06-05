@@ -396,7 +396,7 @@ func checkGameState() {
         endGame(choice: replayChoice)
     } else if TL.status != .notSet && TM.status != .notSet && TR.status != .notSet && ML.status != .notSet && MM.status != .notSet && MR.status != .notSet && BL.status != .notSet && BM.status != .notSet && BR.status != .notSet {
         drawBoard()
-        Figlet.say("Tie")
+        Figlet.say("Stalemate")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
