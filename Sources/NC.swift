@@ -316,7 +316,9 @@ func calculateComputerMove() -> String {
         } else if TR.status == .notSet {
             choice = "TR"
         }
-    } else if human.pointsR2 == 2 {
+    }
+    
+    if human.pointsR2 == 2 {
         if ML.status == .notSet {
             choice = "ML"
         } else if MM.status == .notSet {
@@ -324,7 +326,9 @@ func calculateComputerMove() -> String {
         } else if MR.status == .notSet {
             choice = "MR"
         }
-    } else if human.pointsR3 == 2 {
+    }
+    
+    if human.pointsR3 == 2 {
         if BL.status == .notSet {
             choice = "BL"
         } else if BM.status == .notSet {
@@ -332,7 +336,9 @@ func calculateComputerMove() -> String {
         } else if BR.status == .notSet {
             choice = "BR"
         }
-    } else if human.pointsC1 == 2 {
+    }
+    
+    if human.pointsC1 == 2 {
         if TL.status == .notSet {
             choice = "TL"
         } else if ML.status == .notSet {
@@ -340,7 +346,9 @@ func calculateComputerMove() -> String {
         } else if BL.status == .notSet {
             choice = "BL"
         }
-    } else if human.pointsC2 == 2 {
+    }
+    
+    if human.pointsC2 == 2 {
         if TM.status == .notSet {
             choice = "TM"
         } else if MM.status == .notSet {
@@ -348,7 +356,9 @@ func calculateComputerMove() -> String {
         } else if BM.status == .notSet {
             choice = "BM"
         }
-    } else if human.pointsC3 == 2 {
+    }
+    
+    if human.pointsC3 == 2 {
         if TR.status == .notSet {
             choice = "TR"
         } else if MR.status == .notSet {
@@ -356,7 +366,9 @@ func calculateComputerMove() -> String {
         } else if BR.status == .notSet {
             choice = "BR"
         }
-    } else if human.pointsD1 == 2 {
+    }
+    
+    if human.pointsD1 == 2 {
         if TL.status == .notSet {
             choice = "TL"
         } else if MM.status == .notSet {
@@ -364,7 +376,9 @@ func calculateComputerMove() -> String {
         } else if BR.status == .notSet {
             choice = "BR"
         }
-    } else if human.pointsD2 == 2 {
+    }
+    
+    if human.pointsD2 == 2 {
         if BL.status == .notSet {
             choice = "BL"
         } else if MM.status == .notSet {
@@ -372,7 +386,9 @@ func calculateComputerMove() -> String {
         } else if TR.status == .notSet {
             choice = "TR"
         }
-    } else {
+    }
+    
+    if human.pointsR1 < 2 && human.pointsR2 < 2 && human.pointsR3 < 2 && human.pointsC1 < 2 && human.pointsC2 < 2 && human.pointsC3 < 2 && human.pointsD1 < 2 && human.pointsD2 < 2 {
         choice = computerChoices.randomElement() ?? "No value found"
     }
     
@@ -382,6 +398,7 @@ func calculateComputerMove() -> String {
 func checkGameState() {
     if human.pointsR1 == 3 || human.pointsR2 == 3 || human.pointsR3 == 3 || human.pointsC1 == 3 || human.pointsC2 == 3 || human.pointsC3 == 3 || human.pointsD1 == 3 || human.pointsD2 == 3 {
         human.win = true
+        print("FINAL RESULT:")
         drawBoard()
         Figlet.say("You win")
         print("Play again? Y/N")
@@ -389,12 +406,14 @@ func checkGameState() {
         endGame(choice: replayChoice)
     } else if computer.pointsR1 == 3 || computer.pointsR2 == 3 || computer.pointsR3 == 3 || computer.pointsC1 == 3 || computer.pointsC2 == 3 || computer.pointsC3 == 3 || computer.pointsD1 == 3 || computer.pointsD2 == 3 {
         computer.win = true
+        print("FINAL RESULT:")
         drawBoard()
         Figlet.say("You lose")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
     } else if TL.status != .notSet && TM.status != .notSet && TR.status != .notSet && ML.status != .notSet && MM.status != .notSet && MR.status != .notSet && BL.status != .notSet && BM.status != .notSet && BR.status != .notSet {
+        print("FINAL RESULT:")
         drawBoard()
         Figlet.say("Stalemate")
         print("Play again? Y/N")
