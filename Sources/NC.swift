@@ -298,14 +298,7 @@ func computerSelection() {
             computer.pointsD1 += 1
         }
     default:
-        let boardPieces = [TL, TM, TR, ML, MM, MR, BL, BM, BR]
-        
-        for boardPiece in boardPieces {
-            if boardPiece.status == .notSet {
-                boardPiece.status = .setByComputer
-                break
-            }
-        }
+        print("Computer could not make a choice")
     }
     
     checkGameState()
@@ -398,6 +391,12 @@ func checkGameState() {
         computer.win = true
         drawBoard()
         Figlet.say("You lose")
+        print("Play again? Y/N")
+        replayChoice = readLine()?.uppercased() ?? "No selection"
+        endGame(choice: replayChoice)
+    } else if TL.status != .notSet && TM.status != .notSet && TR.status != .notSet && ML.status != .notSet && MM.status != .notSet && MR.status != .notSet && BL.status != .notSet && BM.status != .notSet && BR.status != .notSet {
+        drawBoard()
+        Figlet.say("Tie")
         print("Play again? Y/N")
         replayChoice = readLine()?.uppercased() ?? "No selection"
         endGame(choice: replayChoice)
