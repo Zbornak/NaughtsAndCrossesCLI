@@ -6,9 +6,9 @@ Take turns marking the game board. The player who succeeds in placing three of t
 
 USAGE: noughts-and-crosses --piece <piece> --difficulty <difficulty>
 
-OPTIONS:
-  --piece <piece>             Choose board piece (either 'X' or 'O')
-  --difficulty <difficulty>   Choose difficulty (easy or hard)
-  --version                   Show the version.
-  --help                      Show help information.
-
+| Options                   | Description                                  |
+|--------------------------:|----------------------------------------------|
+| --piece <piece>           | Choose board piece (either 'X' or 'O').      |
+| --difficulty <difficulty> | Choose difficulty (either 'easy' or 'hard'). |
+| --version                 | Show the version.                            |
+| --help                    | Show help information.                       |
