@@ -298,7 +298,14 @@ func computerSelection() {
             computer.pointsD1 += 1
         }
     default:
-        print("Computer could not make a choice this time")
+        let boardPieces = [TL, TM, TR, ML, MM, MR, BL, BM, BR]
+        
+        for boardPiece in boardPieces {
+            if boardPiece.status == .notSet {
+                boardPiece.status = .setByComputer
+                break
+            }
+        }
     }
     
     checkGameState()
