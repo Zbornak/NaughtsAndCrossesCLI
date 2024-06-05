@@ -22,6 +22,7 @@ var BR = BoardPiece(label: "BR", status: .notSet)
 var human = Player()
 var computer = Player()
 
+var difficultyChoice = ""
 var humanMoveChoice = ""
 var humanPieceChoice = ""
 
@@ -44,14 +45,22 @@ struct NoughtsAndCrosses: ParsableCommand {
     @Option(help: "Choose board piece (either 'X' or 'O')")
     var piece: String
     
+    @Option(help: "Choose difficulty (easy or hard)")
+    var difficulty: String
+    
     mutating func validate() throws {
         guard piece == "X" || piece == "O" || piece == "x" || piece == "o" else {
             throw ValidationError("Please choose either 'X' or 'O'")
+        }
+        
+        guard difficulty.uppercased() == "HARD" || difficulty.uppercased() == "EASY" else {
+            throw ValidationError("Please choose either 'hard' or 'easy'")
         }
     }
     
     mutating func run() throws {
         humanPieceChoice = piece.uppercased()
+        difficultyChoice = difficulty.uppercased()
         Figlet.say("Naughts & Crosses")
         print("(c) zbornak, 2024")
         newGame()
@@ -308,88 +317,93 @@ func calculateComputerMove() -> String {
     let computerChoices = ["TL", "TM", "TR", "ML", "MM", "MR", "BL", "BM", "BR"]
     var choice = ""
     
-    if human.pointsR1 == 2 {
-        if TL.status == .notSet {
-            choice = "TL"
-        } else if TM.status == .notSet {
-            choice = "TM"
-        } else if TR.status == .notSet {
-            choice = "TR"
-        }
-    }
-    
-    if human.pointsR2 == 2 {
-        if ML.status == .notSet {
-            choice = "ML"
-        } else if MM.status == .notSet {
-            choice = "MM"
-        } else if MR.status == .notSet {
-            choice = "MR"
-        }
-    }
-    
-    if human.pointsR3 == 2 {
-        if BL.status == .notSet {
-            choice = "BL"
-        } else if BM.status == .notSet {
-            choice = "BM"
-        } else if BR.status == .notSet {
-            choice = "BR"
-        }
-    }
-    
-    if human.pointsC1 == 2 {
-        if TL.status == .notSet {
-            choice = "TL"
-        } else if ML.status == .notSet {
-            choice = "ML"
-        } else if BL.status == .notSet {
-            choice = "BL"
-        }
-    }
-    
-    if human.pointsC2 == 2 {
-        if TM.status == .notSet {
-            choice = "TM"
-        } else if MM.status == .notSet {
-            choice = "MM"
-        } else if BM.status == .notSet {
-            choice = "BM"
-        }
-    }
-    
-    if human.pointsC3 == 2 {
-        if TR.status == .notSet {
-            choice = "TR"
-        } else if MR.status == .notSet {
-            choice = "MR"
-        } else if BR.status == .notSet {
-            choice = "BR"
-        }
-    }
-    
-    if human.pointsD1 == 2 {
-        if TL.status == .notSet {
-            choice = "TL"
-        } else if MM.status == .notSet {
-            choice = "MM"
-        } else if BR.status == .notSet {
-            choice = "BR"
-        }
-    }
-    
-    if human.pointsD2 == 2 {
-        if BL.status == .notSet {
-            choice = "BL"
-        } else if MM.status == .notSet {
-            choice = "MM"
-        } else if TR.status == .notSet {
-            choice = "TR"
-        }
-    }
-    
-    if human.pointsR1 < 2 && human.pointsR2 < 2 && human.pointsR3 < 2 && human.pointsC1 < 2 && human.pointsC2 < 2 && human.pointsC3 < 2 && human.pointsD1 < 2 && human.pointsD2 < 2 {
+    if difficultyChoice == "EASY" {
         choice = computerChoices.randomElement() ?? "No value found"
+    } else if difficultyChoice == "HARD" {
+        
+        if human.pointsR1 == 2 {
+            if TL.status == .notSet {
+                choice = "TL"
+            } else if TM.status == .notSet {
+                choice = "TM"
+            } else if TR.status == .notSet {
+                choice = "TR"
+            }
+        }
+        
+        if human.pointsR2 == 2 {
+            if ML.status == .notSet {
+                choice = "ML"
+            } else if MM.status == .notSet {
+                choice = "MM"
+            } else if MR.status == .notSet {
+                choice = "MR"
+            }
+        }
+        
+        if human.pointsR3 == 2 {
+            if BL.status == .notSet {
+                choice = "BL"
+            } else if BM.status == .notSet {
+                choice = "BM"
+            } else if BR.status == .notSet {
+                choice = "BR"
+            }
+        }
+        
+        if human.pointsC1 == 2 {
+            if TL.status == .notSet {
+                choice = "TL"
+            } else if ML.status == .notSet {
+                choice = "ML"
+            } else if BL.status == .notSet {
+                choice = "BL"
+            }
+        }
+        
+        if human.pointsC2 == 2 {
+            if TM.status == .notSet {
+                choice = "TM"
+            } else if MM.status == .notSet {
+                choice = "MM"
+            } else if BM.status == .notSet {
+                choice = "BM"
+            }
+        }
+        
+        if human.pointsC3 == 2 {
+            if TR.status == .notSet {
+                choice = "TR"
+            } else if MR.status == .notSet {
+                choice = "MR"
+            } else if BR.status == .notSet {
+                choice = "BR"
+            }
+        }
+        
+        if human.pointsD1 == 2 {
+            if TL.status == .notSet {
+                choice = "TL"
+            } else if MM.status == .notSet {
+                choice = "MM"
+            } else if BR.status == .notSet {
+                choice = "BR"
+            }
+        }
+        
+        if human.pointsD2 == 2 {
+            if BL.status == .notSet {
+                choice = "BL"
+            } else if MM.status == .notSet {
+                choice = "MM"
+            } else if TR.status == .notSet {
+                choice = "TR"
+            }
+        }
+        
+        if human.pointsR1 < 2 && human.pointsR2 < 2 && human.pointsR3 < 2 && human.pointsC1 < 2 && human.pointsC2 < 2 && human.pointsC3 < 2 && human.pointsD1 < 2 && human.pointsD2 < 2 {
+            choice = computerChoices.randomElement() ?? "No value found"
+        }
     }
     
     return choice
