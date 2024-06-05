@@ -105,6 +105,8 @@ func humanTurn() {
 
 func computerTurn() {
     computerSelection()
+    // move cursor back up before redrawing board
+    print(String("\u{001B}[5F"))
     drawBoard()
 }
 
