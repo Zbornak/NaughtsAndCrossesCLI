@@ -7,6 +7,15 @@
 
 import Foundation
 
+/*
+      C1  C2  C3
+ 
+ R1   TL  TM  TR
+ R2   ML  MM  MR
+ R3   BL  BM  BR
+   D2            D1
+ */
+
 struct Player {
     var pointsR1 = 0
     var pointsR2 = 0
