@@ -1,4 +1,4 @@
-## Noughts and Crosses
+## ⭕️ Noughts and Crosses ❌
 
 **A noughts and crosses (tic tac toe) game for the terminal.**
 
