@@ -39,7 +39,7 @@ let rules = """
 
 @main
 struct NoughtsAndCrosses: ParsableCommand {
-    static let configuration = CommandConfiguration(abstract: "A noughts and crosses (tic tac toe) game for the command-line")
+    static let configuration = CommandConfiguration(abstract: "A noughts and crosses (tic tac toe) game for the terminal", version: "1.0.0")
     
     @Option(help: "Choose board piece (either 'X' or 'O')")
     var piece: String
